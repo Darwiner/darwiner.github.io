@@ -1,12 +1,12 @@
 // Mount Rebilly Instruments
 RebillyInstruments.mount({
-  publishableKey: 'pk_sandbox_123',
-  organizationId: 'org-123',
-  websiteId: 'my-website-id',
+  publishableKey: 'pk_sandbox_1C0lQkYH59ir1Jrb7c_mmIE80D3PBU6P8KJbLZR',
+  organizationId: 'phronesis-rentavilla',
+  websiteId: 'rentavilla.localhost',
   apiMode: 'sandbox',
   items: [
       {
-        planId: 'my-plan-id',
+        planId: 'premium',
         quantity: 1
       },
   ]
