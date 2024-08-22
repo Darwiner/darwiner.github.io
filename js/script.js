@@ -2,7 +2,7 @@
 RebillyInstruments.mount({
   publishableKey: 'pk_sandbox_1C0lQkYH59ir1Jrb7c_mmIE80D3PBU6P8KJbLZR',
   organizationId: 'phronesis-rentavilla',
-  websiteId: 'rentavilla.localhost',
+  websiteId: 'darwiner-github-io',
   apiMode: 'sandbox',
   items: [
       {
