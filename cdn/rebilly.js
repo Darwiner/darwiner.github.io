@@ -6,7 +6,7 @@ RebillyInstruments.mount({
   apiMode: 'sandbox',
   items: [
     {
-      planId: 'premium',
+      planId: 'standard-50',
       quantity: 1
     },
   ]
