@@ -15,6 +15,12 @@ RebillyInstruments.mount({
       planId: 'one-time-99',
       quantity: 1,
     },
+  ],
+  bumpOffer: [
+    {
+      planId: 'exclusive-150',
+      quantity: 1,
+    },
   ]
 });
 // Optional
