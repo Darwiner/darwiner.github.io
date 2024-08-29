@@ -33,7 +33,7 @@ RebillyInstruments.on('purchase-completed', (purchase) => {
   console.info('purchase-completed', purchase);
 });
 
-const updateLocaleButton = document.querySelector('#update-plan');
+const updateButton = document.querySelector('#update-plan');
 
 updateButton.addEventListener('click', updateRebillyInstrumentLocale);
 
