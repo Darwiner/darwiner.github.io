@@ -48,7 +48,7 @@ async function updateRebillyInstrumentLocale(e) {
   appState.isPlatinum = !appState.isPlatinum;
 
   const planId = appState.isPlatinum ? 'exclusive-150' : 'standard-50';
-  updateLocaleButton.textContent = appState.isPlatinum
+  updateButton.textContent = appState.isPlatinum
     ? 'Update Plan to Premium'
     : 'Update Plan to Platinum'
 //  const newConfig = {locale: planId};
