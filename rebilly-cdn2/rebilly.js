@@ -9,6 +9,12 @@ RebillyInstruments.mount({
       planId: 'standard-50',
       quantity: 1
     },
+  ],
+  addons: [
+    {
+      planId: 'one-time-99',
+      quantity: 1,
+    },
   ]
 });
 // Optional
