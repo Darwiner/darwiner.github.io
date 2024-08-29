@@ -43,7 +43,7 @@ const appState = {
 
 async function updateRebillyInstrumentLocale(e) {
   e.preventDefault();
-//  e.target.disabled = true;
+  e.target.disabled = true;
 
   appState.isPlatinum = !appState.isPlatinum;
 
@@ -53,5 +53,12 @@ async function updateRebillyInstrumentLocale(e) {
     : 'Update Plan to Platinum'
 //  const newConfig = {locale: planId};
   config.items[0] = {planId: planId, quantity: 1};
-  RebillyInstruments.update(config);
+
+  try {
+    await RebillyInstruments.update(config);
+  } catch (error){
+    console.log('Error updating instruments: ', error);
+  } finally {
+    e.target.disabled = false;
+  }
 }
