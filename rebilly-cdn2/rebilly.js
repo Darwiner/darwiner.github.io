@@ -21,7 +21,10 @@ let config = {
       planId: 'exclusive-150',
       quantity: 1,
     },
-  ]
+  ],
+  features: {
+      hideConfirmation: true,
+    },
 };
 RebillyInstruments.mount(config);
 
@@ -41,6 +44,17 @@ const appState = {
   isPlatinum: false,
 };
 
+RebillyInstruments.on('instrument-ready', validateEula);
+
+async function validateEula(instrument) {
+  const e = document.querySelector("#eula");
+  if (e.checked) {
+    await RebillyInstruments.purchase(instrument);
+  }
+  else {
+    document.write("EULA needs to be accepted.");
+  }
+}
 async function updateRebillyInstrumentLocale(e) {
   e.preventDefault();
   e.target.disabled = true;
