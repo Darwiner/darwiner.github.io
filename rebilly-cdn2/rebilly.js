@@ -109,6 +109,7 @@
         }
       }
     };
+    RebillyInstruments.mount(config);
   });
 })();
 
