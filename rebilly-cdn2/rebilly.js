@@ -1,23 +1,5 @@
 // Mount Rebilly Instruments
-(async () => {
-
-  // TODO: probably don't keep this, testing only
-  const customerId = 'cus_01J6F7GYE4SDHGTE7CSW7HMPGR';
-
-      const response = await fetch("/deposit-request", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json",
-        },
-        body: JSON.stringify({ customerId }),
-    });
-    const { token, depositRequestId } = await response.json();
-
-console.log({token, depositRequestId});
-console.log('Did that help??');
-
-  
+(async function () {
   let config = {
     publishableKey: 'pk_sandbox_1C0lQkYH59ir1Jrb7c_mmIE80D3PBU6P8KJbLZR',
     organizationId: 'phronesis-rentavilla',
@@ -28,6 +10,15 @@ console.log('Did that help??');
         planId: 'standard-50',
         quantity: 1
       },
+//    {
+//      planId: 'monthly-donation',
+//      quantity: 1,
+//      plan: {
+//        pricing: {
+//          price: amountWritten,
+//        }
+//      }
+//    }
     ],
     addons: [
       {
@@ -41,11 +32,9 @@ console.log('Did that help??');
         quantity: 1,
       },
     ],
-    deposit: {
-    },
     features: {
         hideConfirmation: true,
-      },
+    }
   };
   RebillyInstruments.mount(config);
   
@@ -65,7 +54,7 @@ console.log('Did that help??');
     isPlatinum: false,
   };
   
-  RebillyInstruments.on('instrument-ready', validateEula);
+//  RebillyInstruments.on('instrument-ready', validateEula);
   
   async function validateEula(instrument) {
     const e = document.querySelector("#eula");
@@ -98,4 +87,28 @@ console.log('Did that help??');
     }
   }
   
-});
+  document.querySelector('.dedicate-button').addEventListener('click', function() {
+    let isMonthly = false;
+    const buttonMonthly = document.querySelector('#monthly.active');
+    const buttonOnetime = document.querySelector('#onetime.active');
+    if (buttonMonthly) {
+      isMonthly = true;
+    }
+
+    console.log('isMonthly', isMonthly);
+    const amount = document.querySelector('#amount').value;
+    console.log('amount', amount);
+    const planId = isMonthly ? 'donation-monthly' : 'donation-one-time';
+    config.items[1] = {
+      planId,
+      plan: {
+        id: planId,
+        pricing: {
+          formula: "fixed-fee",
+          price: amount,
+        }
+      }
+    };
+  });
+})();
+

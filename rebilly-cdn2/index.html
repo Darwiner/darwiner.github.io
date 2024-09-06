@@ -2,14 +2,121 @@
 <HTML>
   <head>
     <script src="https://cdn.rebilly.com/instruments/@latest/core.js" type="text/javascript"></script>
+        <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style type="text/css">
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .donation-box {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            width: 250px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .donation-box h2 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        .donation-options {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .donation-options div {
+            border: 1px solid #ddd;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 0 5px;
+        }
+        .donation-options div.active {
+            background-color: #e5f6f5;
+            border-color: #26a69a;
+        }
+        .donation-input {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+        }
+        .donation-input input {
+            width: 100px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .dedicate-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: white;
+            color: #333;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .dedicate-button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+    <style type="text/css">
+      .footer {
+        margin-top: 2rem;
+      }
+
+      .footer .header {
+        font-weight: bold;
+        color: #666666;
+        font-size: 1.25rem;
+      }
+
+      .footer button {
+        border: 2px #999999;
+        margin-right: 1rem;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
       <button id="update-plan">Update Plan</button>
       <input type="checkbox" id="eula" name="eula">
+      <div style="height: 3rem"></div>
+      <div class="rebilly-instruments-summary"></div>
+      <div class="rebilly-instruments"></div>
+      <!-- <div class="footer">
+        <div class="header">Support Our Cause</div>
+        <button id="btn-monthly">Monthly</button><button id="btn-one-time">One Time</button>
+        <div class="txt-amount">
+          <input type="text" id="amount"></input>
+        </div>
+      </div>
+      -->
+      <div class="donation-box">
+    <h2>Support Our Cause.</h2>
+    <div class="donation-options">
+        <div class="active" id="monthly">Monthly</div>
+        <div id="onetime">One Time</div>
     </div>
-    <div class="rebilly-instruments-summary"></div>
-    <div class="rebilly-instruments"></div>
+    <div class="donation-input">
+        <input type="text" placeholder="$" id="amount" /> USD
+    </div>
+    <div class="dedicate-button">♡ Dedicate This Gift</div>
+</div>
+    </div>
     <script type="text/javascript" src="rebilly.js"></script>
+    <script>
+    document.getElementById('monthly').addEventListener('click', function() {
+        this.classList.add('active');
+        document.getElementById('onetime').classList.remove('active');
+    });
+
+    document.getElementById('onetime').addEventListener('click', function() {
+        this.classList.add('active');
+        document.getElementById('monthly').classList.remove('active');
+    });
+</script>
   </body>
 </HTML>
