@@ -109,7 +109,7 @@
         }
       }
     };
-    RebillyInstruments.mount(config);
+    RebillyInstruments.update(config);
   });
 })();
 
